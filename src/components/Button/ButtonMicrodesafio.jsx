@@ -6,7 +6,11 @@ const ButtonMicrodesafio = ({ color, label, onClickCallback, style, disabled, ch
 
     const handleClick = () => {
         onClickCallback && onClickCallback()
+
+        // cambiar de color
         // setBackground('#7F636E')
+
+        //volver al color anterior al clickear
         setBackground(prevColor => (prevColor === '#7F636E' ? color : '#7F636E'))
     }
 
