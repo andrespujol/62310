@@ -15,9 +15,9 @@ const ItemListContainer = ({title}) => {
 
   console.log(products)
   return (
-    <Flex justify={'center'} align={'center'}>
-        <Heading className='titulo'>{title}</Heading>
-        <ItemList products={products} />
+    <Flex direction={'column'} justify={'center'} align={'center'}> 
+      <Heading color={'#FCD7B6'} mt={10}>{title}</Heading>
+      <ItemList products={products} />
     </Flex>
   )
 }
