@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card, CardHeader, CardBody, CardFooter, Image, Stack, Text, ButtonGroup, Button, Divider, Heading, Center, Flex } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
-const Item = ({nombre, precio, img}) => {
+const Item = ({nombre, precio, img, id}) => {
   return (
     <Card maxW='sm' border='3px' borderColor='#243F4D' boxShadow='2xl'>
       <CardBody>
@@ -32,7 +33,9 @@ const Item = ({nombre, precio, img}) => {
             color={'#fff'}
             _hover={{ bg: '#3E6478', color: '#fff' }}
             >
-            Ver detalle
+              <Link to={`/producto/${id}`}>
+                Ver detalle
+              </Link>
           </Button>
 
         </Flex>

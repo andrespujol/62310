@@ -17,7 +17,7 @@ export const productos = [
     stock: 5,
     descripcion:
       "Buzo Unisex 100% Algodón. Cuello Redondo con refuerzo en los cuellos y mangas",
-    img: "https://acdn.mitiendanube.com/stores/819/313/products/161bg1-1783beadd7dedcbe0b16824436734220-1024-1024.webp",
+    img: "https://http2.mlstatic.com/D_NQ_NP_876386-MCO54550354561_032023-O.webp",
   },
   {
     id: 3,
@@ -55,6 +55,26 @@ export const getProducts = () => {
   return new Promise((res) => {
     setTimeout(() => {
       res(productos);
+    }, 2000);
+  });
+};
+
+export const getProductsByCategory = (category) => {
+  return new Promise((res) => {
+    const productosFiltrados = productos.filter(
+      (prod) => prod.categoria === category
+    );
+    setTimeout(() => {
+      res(productosFiltrados);
+    }, 2000);
+  });
+};
+
+export const getProductById = (id) => {
+  return new Promise((res) => {
+    const productoFiltrado = productos.find((prod) => prod.id === parseInt(id));
+    setTimeout(() => {
+      res(productoFiltrado);
     }, 2000);
   });
 };

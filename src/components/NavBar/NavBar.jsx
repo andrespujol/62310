@@ -12,9 +12,13 @@ import {
     Box,
     Button,
     Flex,
-    Heading
+    Heading,
+    Image,
+    Link as ChakraLink
   } from '@chakra-ui/react'
+  import logo from '../../assets/logo.png'
   import { FaChevronDown } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
@@ -25,17 +29,26 @@ const NavBar = () => {
         align={'center'} 
         backgroundColor={'#55868C'}
         >
-        <Heading fontSize={'xl'} m={2}>Logo</Heading>
+        <ChakraLink as={Link} width={'30%'} to='/'>
+          <Image w={'60%'} src={logo}/>
+        </ChakraLink>
         <Menu>
             <MenuButton as={Button} rightIcon={<FaChevronDown />}>
-                Actions
+                Categorías
             </MenuButton>
             <MenuList>
-                <MenuItem>Download</MenuItem>
-                <MenuItem>Create a Copy</MenuItem>
-                <MenuItem>Mark as Draft</MenuItem>
-                <MenuItem>Delete</MenuItem>
-                <MenuItem>Attend a Workshop</MenuItem>
+              <MenuItem>
+                <Link to='/categorias/Remeras'>Remeras</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to='/categorias/Buzos'>Buzos</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to='/categorias/Pijamas'>Pijamas</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to='/categorias/Zapatillas'>Zapatillas</Link>
+              </MenuItem>
             </MenuList>
         </Menu>
         <CartWidget />
