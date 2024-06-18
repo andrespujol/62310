@@ -6,19 +6,21 @@ import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 import { PacmanLoader } from 'react-spinners'
 
-const ItemListContainer = ({title}) => {
+const ItemListContainer = ({title, texto}) => {
   const [ products, setProducts ] = useState([])
   const [ loading, setLoading ] = useState(true)
 
+  const { categoryId } = useParams()
 
   useEffect(() => {
     setLoading(true)
-    
-    // ¿Cómo hacemos para traer todos los productos o por categorías?
+    const dataProductos = categoryId ? getProductsByCategory(categoryId) : getProducts()
 
-
-    // ¿Qué dato necesitamos pasarle al array de dependencias?
-  },[])
+    dataProductos
+      .then((data) => setProducts(data))
+      .catch((error) => console.log(error))
+      .finally(()=> setLoading(false))
+  },[categoryId])
 
   return (
     <Flex direction={'column'} justify={'center'} align={'center'}> 
@@ -29,7 +31,7 @@ const ItemListContainer = ({title}) => {
           <PacmanLoader color="#36d7b7" />
         </Flex>
         : 
-        <ItemList products={products} />
+        <ItemList products={products} texto={texto}/>
       }
     </Flex>
   )
