@@ -50,31 +50,3 @@ export const productos = [
     img: "https://ghibli-merch.com/wp-content/uploads/2022/11/Ghibli-Characters-Light-Blue-AJ-Shoes.jpg",
   },
 ];
-
-export const getProducts = () => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res(productos);
-    }, 2000);
-  });
-};
-
-export const getProductsByCategory = (category) => {
-  return new Promise((res) => {
-    const productosFiltrados = productos.filter(
-      (prod) => prod.categoria === category
-    );
-    setTimeout(() => {
-      res(productosFiltrados);
-    }, 2000);
-  });
-};
-
-export const getProductById = (id) => {
-  return new Promise((res) => {
-    const productoFiltrado = productos.find((prod) => prod.id === parseInt(id));
-    setTimeout(() => {
-      res(productoFiltrado);
-    }, 2000);
-  });
-};

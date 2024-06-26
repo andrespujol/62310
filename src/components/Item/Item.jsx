@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardHeader, CardBody, CardFooter, Image, Stack, Text, ButtonGroup, Button, Divider, Heading, Center, Flex } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-const Item = ({nombre, precio, img, id, texto}) => {
+const Item = ({nombre, precio, stock, img, id, texto}) => {
   return (
     <Card maxW='sm' border='3px' borderColor='#243F4D' boxShadow='2xl'>
       <CardBody>
@@ -20,6 +20,9 @@ const Item = ({nombre, precio, img, id, texto}) => {
           <Heading size={'sm'}>{texto}</Heading>
           <Text color='blue.600' fontSize='2xl'>
             ${precio}
+          </Text>
+          <Text color='blue.600' fontSize='2xl'>
+            stock: {stock}
           </Text>
         </Stack>
       </CardBody>

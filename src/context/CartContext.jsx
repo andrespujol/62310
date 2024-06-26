@@ -41,7 +41,6 @@ export const CartContextProvider = ({ children }) => {
     }
 
 
-    console.log(cart)
   return (
     <Context.Provider 
         value={{

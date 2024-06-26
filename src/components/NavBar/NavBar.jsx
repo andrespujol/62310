@@ -29,10 +29,10 @@ const NavBar = () => {
         align={'center'} 
         backgroundColor={'#55868C'}
         >
-        <ChakraLink as={Link} width={'30%'} to='/'>
-          <Image w={'60%'} src={logo}/>
+        <ChakraLink as={Link} width={'10%'}  to='/'>
+          <Image h={'10vh'} w={'100%'} objectFit={'cover'} src={logo}/>
         </ChakraLink>
-        <Menu>
+        <Menu >
             <MenuButton as={Button} rightIcon={<FaChevronDown />}>
                 Categorías
             </MenuButton>

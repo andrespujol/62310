@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getProductById } from '../../data/asyncMock'
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { Flex, Spinner } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 
 import { PacmanLoader } from 'react-spinners'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../../config/firebase'
 
 const ItemDetailContainer = () => {
     const [ producto, setProducto ] = useState({})
@@ -14,16 +15,20 @@ const ItemDetailContainer = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        getProductById(productId)
-            .then((data) => {
-                if(!data) {
-                    navigate('/*')
-                }else{
-                    setProducto(data)
-                }
-            })
-            .catch((error) => console.log(error))
-            .finally(() => setLoading(false))
+        const getData = async () => {
+            // obtenemos la referencia a un producto en específico
+            const queryRef = doc(db, 'productos', productId)
+            // obtenemos el documente
+            const response = await getDoc(queryRef)
+            // creamos el objeto con la data y el id
+            const newItem = {
+                ...response.data(),
+                id: response.id
+            }
+            setProducto(newItem)
+            setLoading(false)
+        }
+        getData()
     },[])
 
     return (
@@ -32,13 +37,7 @@ const ItemDetailContainer = () => {
                 loading ? 
                 <Flex justify={'center'} align={'center'} h={'90vh'}>
 
-                <Spinner
-                    thickness='4px'
-                    speed='0.65s'
-                    emptyColor='gray.200'
-                    color='#243F4D'
-                    size='xl'
-                    /> 
+                    <PacmanLoader color="#36d7b7" />            
                 </Flex>
                 : 
                 <>

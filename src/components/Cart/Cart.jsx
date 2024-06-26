@@ -18,12 +18,11 @@ import {
 
 const Cart = () => {
     const { cart, removeItem, clearCart, getTotal } = useContext(Context)
-    console.log('carrito', cart)
     if(cart.length === 0) {
         return (
 
-            <Flex direction={'column'} justify={'center'} align={'center'}>
-            <Heading>Todavía no agregaste productos al carrito</Heading>
+            <Flex direction={'column'} justify={'center'} align={'center'} mt={10}>
+                <Heading>Todavía no agregaste productos al carrito</Heading>
             <Link to='/'>Ver productos</Link>
         </Flex>
     )
@@ -62,7 +61,7 @@ const Cart = () => {
         <Tr>
             <Th><Button onClick={() => clearCart()}>Vaciar carrito </Button></Th>
             <Th><Heading>{getTotal()}</Heading></Th>
-            <Th><Link to=''>Finalizar compra</Link></Th>
+            <Th><Link to='/checkout'>Finalizar compra</Link></Th>
         </Tr>
         </Tfoot>
     </Table>

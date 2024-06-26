@@ -15,7 +15,8 @@ const ItemDetail = ({categoria, descripcion, img, nombre, precio, id, stock}) =>
         const item = {
             id,
             nombre,
-            precio
+            precio,
+            img
         }
         addItem(item, quantity)
         toast(`Agregaste ${quantity} unidades`)
@@ -50,10 +51,10 @@ const ItemDetail = ({categoria, descripcion, img, nombre, precio, id, stock}) =>
             {descripcion}
             </Text>
         </Flex>
-            <Text fontSize='3xl' textAlign={'center'} mt={10} color={'#243F4D'} fontWeight={'bold'}>
+            <Text fontSize='3xl' textAlign={'center'} mt={10} color={'#fff'} fontWeight={'bold'}>
                 ${precio}
             </Text>
-            <Text fontSize='xl' textAlign={'center'} mt={1} color={'#243F4D'}>
+            <Text fontSize='xl' textAlign={'center'} mt={1} color={'#fff'}>
             Stock disponible: {stock}
             </Text>
         </CardBody>

@@ -14,6 +14,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "axios": "^1.7.2",
+    "firebase": "^10.12.2",
     "framer-motion": "^11.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,7 +23,8 @@
     "react-spinners": "^0.13.8",
     "react-toastify": "^10.0.5",
     "sass": "^1.77.2",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "sweetalert2": "^11.12.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
